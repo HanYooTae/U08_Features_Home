@@ -14,8 +14,11 @@ public:
 
 private:
 	void SpawnVertexButton_Pressed();
+	void OpenViewerButton_Pressed();
 
 public:
 	TSharedPtr<FUICommandInfo> SpawnVertexButton;		// 버튼 객체가 저장
-	TSharedPtr<FUICommandList> SpawnVertexCommand;
+	TSharedPtr<FUICommandInfo> OpenViewerButton;
+
+	TSharedPtr<FUICommandList> SpawnVertexCommand;		// 일종의 Controller
 };

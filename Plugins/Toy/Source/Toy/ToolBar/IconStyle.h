@@ -2,20 +2,27 @@
 
 #include "CoreMinimal.h"
 
-class TOY_API IconStyle
+class TOY_API FIconStyle
 {
 public:
-	static TSharedPtr<IconStyle> Get();		// Get과 Create의 역할을 수행함
+	static TSharedPtr<FIconStyle> Get();		// Get과 Create의 역할을 수행함
 	static void ShutDown();
 
 public:
-	IconStyle();
-	~IconStyle();
+	FIconStyle();
+	~FIconStyle();
 
 private:
-	static TSharedPtr<IconStyle> Instance;
+	void RegisterIcon(const FString& InPostFix, const FString& path, const FVector2D& InSize, FSlateIcon& OutSlateIcon);
+
+private:
+	static TSharedPtr<FIconStyle> Instance;
 
 private:
 	const FName StyleSetName = "ToyStyle";
 	TSharedPtr<class FSlateStyleSet> StyleSet;
+
+public:
+	FSlateIcon SpawnVertexButtonIcon;
+	FSlateIcon OpenViewerButtonIcon;
 };
