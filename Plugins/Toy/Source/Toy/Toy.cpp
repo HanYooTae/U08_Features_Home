@@ -4,6 +4,8 @@
 #include "ToolBar/IconStyle.h"
 #include "GameplayDebugger.h"
 #include "DebuggerCategory/DebuggerCategory.h"
+#include "DetailPannel/DetailsButton.h"
+#include "RHI/CButtonActor.h"
 
 #define LOCTEXT_NAMESPACE "FToyModule"
 
@@ -37,6 +39,16 @@ void FToyModule::StartupModule()
 		IGameplayDebugger::FOnGetCategory categoryDelegate = IGameplayDebugger::FOnGetCategory::CreateStatic(&FDebuggerCategory::MakeInstance);
 		gameplayDebugger.Get().RegisterCategory("AwesomeData", categoryDelegate, EGameplayDebuggerCategoryState::EnabledInGameAndSimulate, 5);
 		gameplayDebugger.NotifyCategoriesChanged();
+	}
+
+	// DetailPannel_Button
+	{
+		FPropertyEditorModule& propertyEditor = FModuleManager::LoadModuleChecked<FPropertyEditorModule>("PropertyEditor");
+		propertyEditor.RegisterCustomClassLayout
+		(
+			ACButtonActor::StaticClass()->GetFName(),
+			FOnGetDetailCustomizationInstance::CreateStatic(&FDetailsButton::MakeInstance)
+		);
 	}
 }
 
