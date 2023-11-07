@@ -1,5 +1,6 @@
 #include "DebuggerCategory/DebuggerCategory.h"
 #include "CanvasItem.h"
+#include "GameFramework/PlayerController.h"
 
 FDebuggerCategory::FDebuggerCategory()
 {

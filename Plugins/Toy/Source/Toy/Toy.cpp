@@ -6,6 +6,7 @@
 #include "DebuggerCategory/DebuggerCategory.h"
 #include "DetailPannel/DetailsButton.h"
 #include "RHI/CButtonActor.h"
+#include "Viewer/MeshViewer.h"
 
 #define LOCTEXT_NAMESPACE "FToyModule"
 
@@ -61,6 +62,7 @@ void FToyModule::ShutdownModule()
 		IGameplayDebugger::Get().UnregisterCategory("AwesomData");
 
 	FIconStyle::ShutDown();
+	FMeshViewer::Shutdown();
 }
 
 void FToyModule::AddToolBar_SpawnVertex(FToolBarBuilder& InToolBarBuilder)
