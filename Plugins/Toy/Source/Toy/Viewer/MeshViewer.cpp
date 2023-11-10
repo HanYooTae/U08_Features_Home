@@ -49,5 +49,14 @@ void FMeshViewer::OpenWindow_Internal(UObject* InAsset)
 			FTabManager::NewPrimaryArea()
 		);
 
-	FAssetEditorToolkit::InitAssetEditor(EToolkitMode::Standalone/*별도의 창으로*/, TSharedPtr<IToolkitHost>(), ToolkitName, layout, true/*검색창*/, true/*툴바아이콘*/, InAsset);
+	FAssetEditorToolkit::InitAssetEditor
+	(
+		EToolkitMode::Standalone/*별도의 창으로*/,
+		TSharedPtr<IToolkitHost>(),
+		ToolkitName,
+		layout,
+		true/*검색창*/,
+		true/*툴바아이콘*/,
+		InAsset
+	);
 }
